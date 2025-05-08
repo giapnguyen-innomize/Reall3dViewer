@@ -82,7 +82,7 @@
 		</div>
 
 		<canvas id="gsviewer-canvas"></canvas>
-		<div class="debug dev-panel prd-mode" style="border-radius:5px;display: none;">
+		<div class="debug dev-panel prd-mode" style="border-radius:5px; position: fixed; bottom: 0; background: gray; padding: 10px">
 			<table style="width:330px;font-size: 13px;">
 				<tr class="tr-memory">
 					<td>memory:</td>
@@ -136,90 +136,13 @@
 				</tr>
 			</table>
 		</div>
-		<div class="operation dev-panel prd-mode" style="border-radius:5px;display: none;">
-			<table style="width:135px;text-align:center;font-size: 13px;">
-				<tr>
-					<td><span class="switch-debug" style="background-color: darkorchid;"
-							title="Hide/Show the info panel">－</span>
-						TEST PANEL
-						<span class="op-show" style="background-color: darkorchid;"
-							title="Hide/Show the test panel">－</span>
-					</td>
-				</tr>
-				<tr class="tr-data">
-					<td>----------------</td>
-				</tr>
-				<tr class="tr-data">
-					<td><span class="switch-rotate" title="Start/Stop rotate">旋转</span> <span
-							class="switch-pointcloudMode" title="Toggle pointcloud mode">点云</span> <span
-							class="switch-deiplay-mode" title="Toggle pointcloud mode with transition effec">过渡</span>
-					</td>
-					</td>
-				</tr>
-				<tr class="tr-data tr-pc-only">
-					<td><span class="add-lightFactor" title="Increase the brightness by 10%">＋</span><span
-							class="default-lightFactor" style="width: 80px;"
-							title="use default brightness">默认亮度</span><span class="sub-lightFactor"
-							title="Decrease the brightness by 10%">－</span></td>
-				</tr>
-				<tr class="tr-data tr-pc-only">
-					<td><span class="add-sh" title="Increase SH degree">＋</span><span class="default-sh"
-							style="width: 80px;" title="use default SH degree">Default SH</span><span class="sub-sh"
-							title="Decrease SH degree">－</span></td>
-				</tr>
-				<tr class="tr-data">
-					<td>----- demo -----</td>
-				</tr>
-				<tr class="tr-data">
-					<td><span class="demo1" style="width: 80px;" title="Demo of mark and measurements">小圆桌</span> <span
-							class="demo2" style="width: 80px;" title="Demo of embedded text watermarking">天际阁</span>
-					</td>
-				</tr>
-				<tr class="tr-data">
-					<td><span class="demo3" style="width: 80px;" title="Demo of flying">大街景</span> <span class="demo4"
-							style="width: 80px;" title="Demo of embedded splat as watermarking">宝章阁</span></td>
-				</tr>
-				<tr class="tr-data tr-pc-only">
-					<td>
-						<span class="show-watermark" title="show watermarks">＋</span> <input type="text" class="gstext"
-							style="width:50px" value="" placeholder="watermark" title="Enter text as watermarking">
-						</input><span class="hide-watermark" title="hide watermarks">－</span>
-					</td>
-				</tr>
-				<!-- <tr class="tr-data">
-					<td>
-						<span class="big-lod"
-							title="Large scene rendering based on LOD">大场景LOD</span>
-					</td>
-				</tr> -->
-				<tr class="tr-data tr-pc-only">
-					<td>----- marks -----</td>
-				</tr>
-				<tr class="tr-data tr-pc-only">
-					<td><span class="mark-hide" title="Hide marks">隐</span>　<span class="mark-show"
-							title="Show marks">显</span>　<span class="mark-save" title="Save marks">存</span>　<span
-							class="mark-del" title="Delete marks">删</span></td>
-				</tr>
-				<tr class="tr-data tr-pc-only">
-					<td><span class="mark-distance" title="mark distance">长</span> <span class="mark-point"
-							title="mark point">点</span> <span class="mark-lines" title="mark lines">线</span> <span
-							class="mark-plans" title="mark plans">面</span> <span class="mark-circle"
-							title="mark circle">圆</span></td>
-				</tr>
-				<tr class="tr-data tr-pc-only">
-					<td>----- flying -----</td>
-				</tr>
-				<tr class="tr-data tr-pc-only">
-					<td><span class="add-pos"
-							title="Add the current camera position as one of the flight path points">加点</span> <span
-							class="clear-pos" title="Clear the flight path points">清空</span> <span class="fly"
-							title="Start flying">飞</span> <span class="fly-save"
-							title="Save the flight path points">存</span>
-					</td>
-				</tr>
-			</table>
-		</div>
-		<script type="module" src="./src/index.ts"></script>
+	</div>
+    <script type="module">
+        import {Reall3dViewer, initDevMode } from './src/index.js';
+        const viewer = new Reall3dViewer({ debugMode: true });
+        viewer.addModel('https://huggingface.co/cakewalk/splat-data/resolve/main/train.splat');
+        // initDevMode(true)
+    </script>
 </body>
 
 </html>

@@ -1,0 +1,38 @@
+import { Vector3 } from 'three';
+import { Line2 } from 'three/examples/jsm/Addons.js';
+import { Events } from '../../events/Events';
+import { MarkDataDistanceLine } from './data/MarkDataDistanceLine';
+import { MarkData } from './data/MarkData';
+export declare class MarkDistanceLine extends Line2 {
+    readonly isMark: boolean;
+    private disposed;
+    private events;
+    private data;
+    private circleStart;
+    private circleEnd;
+    private css3dMainTag;
+    private css3dTag;
+    constructor(events: Events);
+    /**
+     * 绘制开始
+     */
+    drawStart(startPoint: Vector3, name?: string): void;
+    /**
+     * 绘制更新
+     */
+    drawUpdate(data: MarkDataDistanceLine, saveData?: boolean): void;
+    /**
+     * 按米标比例尺重新计算更新渲染
+     */
+    updateByMeterScale(meterScale: number): void;
+    /**
+     * 绘制结束
+     */
+    drawFinish(endPoint: Vector3): void;
+    /**
+     * 根据数据直接绘制
+     */
+    draw(inputData: MarkDataDistanceLine): void;
+    getMarkData(simple?: boolean): MarkData;
+    dispose(): void;
+}

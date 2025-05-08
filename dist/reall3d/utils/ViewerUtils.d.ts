@@ -1,0 +1,14 @@
+import { PerspectiveCamera, Scene, WebGLRenderer } from 'three';
+import { Events } from '../events/Events';
+import { SplatMeshOptions } from '../meshs/splatmesh/SplatMeshOptions';
+import { CameraControls } from '../controls/CameraControls';
+import { Reall3dViewerOptions } from '../viewer/Reall3dViewerOptions';
+export declare function setupViewerUtils(events: Events): void;
+export declare function initSplatMeshOptions(options: SplatMeshOptions): SplatMeshOptions;
+export declare function initGsViewerOptions(options: Reall3dViewerOptions): Reall3dViewerOptions;
+export declare function initCanvas(opts: Reall3dViewerOptions): HTMLCanvasElement;
+export declare function initRenderer(opts: Reall3dViewerOptions): WebGLRenderer;
+export declare function initScene(opts: Reall3dViewerOptions): Scene;
+export declare function initCamera(opts: Reall3dViewerOptions): PerspectiveCamera;
+export declare function initControls(opts: Reall3dViewerOptions): CameraControls;
+export declare function copyGsViewerOptions(gsViewerOptions: Reall3dViewerOptions): SplatMeshOptions;
